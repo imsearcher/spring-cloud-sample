@@ -24,9 +24,10 @@ public class UserService {
 	 
 	 final String SERVICE_NAME="cloud-simple-service";
 	 
-	 @HystrixCommand(fallbackMethod = "fallbackSearchAll")
+	 //@HystrixCommand(fallbackMethod = "fallbackSearchAll")
 	 public List<User> readUserInfo() {
-	        return restTemplate.getForObject("http://"+SERVICE_NAME+"/user", List.class);
+
+	     return restTemplate.getForObject("http://"+SERVICE_NAME+"/user", List.class);
 		 //return feignUserService.readUserInfo();
 	 }	 
 	 private List<User> fallbackSearchAll() {
